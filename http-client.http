@@ -1,0 +1,61 @@
+### Signup User
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
+
+{
+  "email": "yaminahouti@taptoplab.com",
+  "password": "123456"
+}
+
+### Login User
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
+
+{
+  "email": "obrienadedapo15@gmail.com",
+  "password": "123456"
+}
+
+
+### Create Habit
+POST http://localhost:3000/habits
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMjE1NGE0Yy03Y2I5LTQyYTYtYTE5OS0yN2Y4ODJkMzJlMjEiLCJlbWFpbCI6Im9icmllbmFkZWRhcG8xNUBnbWFpbC5jb20iLCJpYXQiOjE3NTU0NDQ3ODUsImV4cCI6MTc1NTQ0ODM4NX0.hDH_ILBdO_hprdZMEvgGD520RhDQU8ZpJSPnIbH31Dg
+x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
+
+{
+  "title": "Morning Squats",
+  "description": "20 squats every morning",
+  "streak": 0,
+  "frequency": "daily"
+}
+
+### Get All Habits
+GET http://localhost:3000/habits
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMjE1NGE0Yy03Y2I5LTQyYTYtYTE5OS0yN2Y4ODJkMzJlMjEiLCJlbWFpbCI6Im9icmllbmFkZWRhcG8xNUBnbWFpbC5jb20iLCJpYXQiOjE3NTU0NDQ3ODUsImV4cCI6MTc1NTQ0ODM4NX0.hDH_ILBdO_hprdZMEvgGD520RhDQU8ZpJSPnIbH31Dg
+x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
+
+### Get Single Habit
+GET http://localhost:3000/habits/43469613-51f7-4c3a-9bbe-134d7068b439
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMjE1NGE0Yy03Y2I5LTQyYTYtYTE5OS0yN2Y4ODJkMzJlMjEiLCJlbWFpbCI6Im9icmllbmFkZWRhcG8xNUBnbWFpbC5jb20iLCJpYXQiOjE3NTU0NDQ3ODUsImV4cCI6MTc1NTQ0ODM4NX0.hDH_ILBdO_hprdZMEvgGD520RhDQU8ZpJSPnIbH31Dg
+x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
+
+### Update Habit
+PATCH http://localhost:3000/habits/43469613-51f7-4c3a-9bbe-134d7068b439
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMjE1NGE0Yy03Y2I5LTQyYTYtYTE5OS0yN2Y4ODJkMzJlMjEiLCJlbWFpbCI6Im9icmllbmFkZWRhcG8xNUBnbWFpbC5jb20iLCJpYXQiOjE3NTU0NDQ3ODUsImV4cCI6MTc1NTQ0ODM4NX0.hDH_ILBdO_hprdZMEvgGD520RhDQU8ZpJSPnIbH31Dg
+x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
+
+{
+  "title": "Evening Squats",
+  "description": "20 squats every evening",
+  "last_completed": "2025-08-16T00:00:00.000Z",
+  "streak": 2
+}
+
+### Delete Habit
+DELETE http://localhost:3000/habits/43469613-51f7-4c3a-9bbe-134d7068b439
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMjE1NGE0Yy03Y2I5LTQyYTYtYTE5OS0yN2Y4ODJkMzJlMjEiLCJlbWFpbCI6Im9icmllbmFkZWRhcG8xNUBnbWFpbC5jb20iLCJpYXQiOjE3NTU0NDQ3ODUsImV4cCI6MTc1NTQ0ODM4NX0.hDH_ILBdO_hprdZMEvgGD520RhDQU8ZpJSPnIbH31Dg
+x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
