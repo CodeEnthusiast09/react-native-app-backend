@@ -40,6 +40,12 @@ export class HabitsController {
     return successResponse('Fetched habits successfully!', result);
   }
 
+  @Post(':id/completions')
+  async complete(@Param('id') id: string, @GetUser() user: PayloadType) {
+    const result = await this.habitsService.completeHabit(id, user.userId);
+    return successResponse('Habit completed successsfully!', result);
+  }
+
   @Get(':id')
   async findOne(@Param('id') id: string, @GetUser() user: PayloadType) {
     const result = await this.habitsService.findOneByUser(id, user.userId);

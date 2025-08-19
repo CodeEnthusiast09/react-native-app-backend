@@ -8,8 +8,10 @@ import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
 import { UsersService } from '../users/users.service';
 import * as bcrypt from 'bcrypt';
-import { User } from '../users/entities/user.entity';
+// import { User } from '../users/entities/user.entity';
 import { PayloadType } from './interface/payload-types';
+import { UserResponseDto } from './dto/user-response.dto';
+import { plainToInstance } from 'class-transformer';
 
 @Injectable()
 export class AuthService {
@@ -36,7 +38,9 @@ export class AuthService {
     return user;
   }
 
-  async login(loginDto: LoginDto): Promise<{ token: string; user: User }> {
+  async login(
+    loginDto: LoginDto,
+  ): Promise<{ token: string; user: UserResponseDto }> {
     const user = await this.usersService.findByEmail(loginDto.email);
 
     if (!user) throw new UnauthorizedException('Invalid credentials');
@@ -51,8 +55,13 @@ export class AuthService {
     }
 
     const payload: PayloadType = { userId: user.id, email: user.email };
+
     const token = this.jwtService.sign(payload);
 
-    return { token, user };
+    const userResponse = plainToInstance(UserResponseDto, user, {
+      excludeExtraneousValues: true,
+    });
+
+    return { token, user: userResponse };
   }
 }

@@ -4,9 +4,11 @@ Content-Type: application/json
 x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
 
 {
-  "email": "yaminahouti@taptoplab.com",
+  "email": "example@gmail.com",
   "password": "123456"
 }
+
+//yaminahouti@taptoplab.com
 
 ### Login User
 POST http://localhost:3000/auth/login
@@ -14,7 +16,7 @@ Content-Type: application/json
 x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
 
 {
-  "email": "obrienadedapo15@gmail.com",
+  "email": "example@gmail.com",
   "password": "123456"
 }
 
@@ -22,30 +24,37 @@ x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
 ### Create Habit
 POST http://localhost:3000/habits
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMjE1NGE0Yy03Y2I5LTQyYTYtYTE5OS0yN2Y4ODJkMzJlMjEiLCJlbWFpbCI6Im9icmllbmFkZWRhcG8xNUBnbWFpbC5jb20iLCJpYXQiOjE3NTU0NDQ3ODUsImV4cCI6MTc1NTQ0ODM4NX0.hDH_ILBdO_hprdZMEvgGD520RhDQU8ZpJSPnIbH31Dg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTE0NzQzZS04NzEzLTRlMzQtYjFkOC1kNzg0NWZlODU4OTQiLCJlbWFpbCI6ImV4YW1wbGVAZ21haWwuY29tIiwiaWF0IjoxNzU1NjAxNDUzLCJleHAiOjE3NTU2MDUwNTN9.F5k2jKjbfkVpAcq61TR2oxZSZFnP67AxafXv2If8iB4
 x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
 
 {
-  "title": "Morning Squats",
-  "description": "20 squats every morning",
+  "title": "Stay hyrated",
+  "description": "Drink 8 of water everyday",
   "streak": 0,
   "frequency": "daily"
 }
 
 ### Get All Habits
 GET http://localhost:3000/habits
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMjE1NGE0Yy03Y2I5LTQyYTYtYTE5OS0yN2Y4ODJkMzJlMjEiLCJlbWFpbCI6Im9icmllbmFkZWRhcG8xNUBnbWFpbC5jb20iLCJpYXQiOjE3NTU0NDQ3ODUsImV4cCI6MTc1NTQ0ODM4NX0.hDH_ILBdO_hprdZMEvgGD520RhDQU8ZpJSPnIbH31Dg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTE0NzQzZS04NzEzLTRlMzQtYjFkOC1kNzg0NWZlODU4OTQiLCJlbWFpbCI6ImV4YW1wbGVAZ21haWwuY29tIiwiaWF0IjoxNzU1NjAxNDUzLCJleHAiOjE3NTU2MDUwNTN9.F5k2jKjbfkVpAcq61TR2oxZSZFnP67AxafXv2If8iB4
 x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
+
+
+### COMPLETE HABIT
+POST http://localhost:3000/habits/021fb54a-780f-4b1d-8bc2-b882dd5e0ea7/completions
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTE0NzQzZS04NzEzLTRlMzQtYjFkOC1kNzg0NWZlODU4OTQiLCJlbWFpbCI6ImV4YW1wbGVAZ21haWwuY29tIiwiaWF0IjoxNzU1NjAxNDUzLCJleHAiOjE3NTU2MDUwNTN9.F5k2jKjbfkVpAcq61TR2oxZSZFnP67AxafXv2If8iB4
+x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
+
 
 ### Get Single Habit
 GET http://localhost:3000/habits/43469613-51f7-4c3a-9bbe-134d7068b439
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMjE1NGE0Yy03Y2I5LTQyYTYtYTE5OS0yN2Y4ODJkMzJlMjEiLCJlbWFpbCI6Im9icmllbmFkZWRhcG8xNUBnbWFpbC5jb20iLCJpYXQiOjE3NTU0NDQ3ODUsImV4cCI6MTc1NTQ0ODM4NX0.hDH_ILBdO_hprdZMEvgGD520RhDQU8ZpJSPnIbH31Dg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTE0NzQzZS04NzEzLTRlMzQtYjFkOC1kNzg0NWZlODU4OTQiLCJlbWFpbCI6ImV4YW1wbGVAZ21haWwuY29tIiwiaWF0IjoxNzU1NjAxNDUzLCJleHAiOjE3NTU2MDUwNTN9.F5k2jKjbfkVpAcq61TR2oxZSZFnP67AxafXv2If8iB4
 x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
 
 ### Update Habit
 PATCH http://localhost:3000/habits/43469613-51f7-4c3a-9bbe-134d7068b439
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMjE1NGE0Yy03Y2I5LTQyYTYtYTE5OS0yN2Y4ODJkMzJlMjEiLCJlbWFpbCI6Im9icmllbmFkZWRhcG8xNUBnbWFpbC5jb20iLCJpYXQiOjE3NTU0NDQ3ODUsImV4cCI6MTc1NTQ0ODM4NX0.hDH_ILBdO_hprdZMEvgGD520RhDQU8ZpJSPnIbH31Dg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTE0NzQzZS04NzEzLTRlMzQtYjFkOC1kNzg0NWZlODU4OTQiLCJlbWFpbCI6ImV4YW1wbGVAZ21haWwuY29tIiwiaWF0IjoxNzU1NjAxNDUzLCJleHAiOjE3NTU2MDUwNTN9.F5k2jKjbfkVpAcq61TR2oxZSZFnP67AxafXv2If8iB4
 x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
 
 {
@@ -56,6 +65,6 @@ x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
 }
 
 ### Delete Habit
-DELETE http://localhost:3000/habits/43469613-51f7-4c3a-9bbe-134d7068b439
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMjE1NGE0Yy03Y2I5LTQyYTYtYTE5OS0yN2Y4ODJkMzJlMjEiLCJlbWFpbCI6Im9icmllbmFkZWRhcG8xNUBnbWFpbC5jb20iLCJpYXQiOjE3NTU0NDQ3ODUsImV4cCI6MTc1NTQ0ODM4NX0.hDH_ILBdO_hprdZMEvgGD520RhDQU8ZpJSPnIbH31Dg
+DELETE http://localhost:3000/habits/7ed42a36-9da1-48b6-86f4-53fa2280d065
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTE0NzQzZS04NzEzLTRlMzQtYjFkOC1kNzg0NWZlODU4OTQiLCJlbWFpbCI6ImV4YW1wbGVAZ21haWwuY29tIiwiaWF0IjoxNzU1NjAxNDUzLCJleHAiOjE3NTU2MDUwNTN9.F5k2jKjbfkVpAcq61TR2oxZSZFnP67AxafXv2If8iB4
 x-api-key: 750a405edc37cf32a4a16787cf9b08bc1957b732975f3204c2390f692a883dc9
