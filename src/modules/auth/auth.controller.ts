@@ -3,16 +3,12 @@ import {
   ClassSerializerInterceptor,
   Controller,
   Post,
-  Req,
-  UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
 import { successResponse } from 'src/common/utils/response.helper';
-import { JwtAuthGuard } from './guards/jwt.guard';
-import { Request } from 'express';
 
 @Controller('auth')
 @UseInterceptors(ClassSerializerInterceptor)
