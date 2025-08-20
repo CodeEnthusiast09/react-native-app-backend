@@ -1,0 +1,87 @@
+### Signup User
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+x-api-key: 
+
+{
+  "email": "example@gmail.com",
+  "password": "123456"
+}
+
+//yaminahouti@taptoplab.com
+
+### Login User
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+x-api-key: 
+
+{
+  "email": "example@gmail.com",
+  "password": "123456"
+}
+
+
+### Create Habit
+POST http://localhost:3000/habits
+Content-Type: application/json
+Authorization: Bearer {token}
+x-api-key: 
+
+{
+  "title": "Stay hyrated",
+  "description": "Drink 8 of water everyday",
+  "streak": 0,
+  "frequency": "daily"
+}
+
+### Get All Habits
+GET http://localhost:3000/habits
+Authorization: Bearer {token}
+x-api-key: 
+
+
+### COMPLETE HABIT
+POST http://localhost:3000/habits/021fb54a-780f-4b1d-8bc2-b882dd5e0ea7/completions
+Authorization: Bearer {token}
+x-api-key: 
+
+
+### GET HABIT COMPLETED
+GET http://localhost:3000/habits/completed
+Authorization: Bearer {token}
+x-api-key: 
+
+
+### GET HABIT COMPLETED TODAY
+GET http://localhost:3000/habits/completed/today
+Authorization: Bearer {token}
+x-api-key: 
+
+
+### Get Single Habit
+GET http://localhost:3000/habits/43469613-51f7-4c3a-9bbe-134d7068b439
+Authorization: Bearer {token}
+x-api-key: 
+
+### Update Habit
+PATCH http://localhost:3000/habits/43469613-51f7-4c3a-9bbe-134d7068b439
+Content-Type: application/json
+Authorization: Bearer {token}
+x-api-key: 
+
+{
+  "title": "Evening Squats",
+  "description": "20 squats every evening",
+  "last_completed": "2025-08-16T00:00:00.000Z",
+  "streak": 2
+}
+
+### Delete Habit
+DELETE http://localhost:3000/habits/7ed42a36-9da1-48b6-86f4-53fa2280d065
+Authorization: Bearer {token}
+x-api-key: 
+
+
+### SEED
+POST http://localhost:3000/seed/habit-completions
+x-api-key: 

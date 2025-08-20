@@ -9,6 +9,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmAsyncConfig } from 'db/data-source';
 import { HabitsModule } from './modules/habits/habits.module';
+import { SeedModule } from './modules/seed/seed.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { HabitsModule } from './modules/habits/habits.module';
     UsersModule,
     AuthModule,
     HabitsModule,
+    SeedModule,
   ],
   controllers: [],
   providers: [

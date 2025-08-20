@@ -4,13 +4,14 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Between, Repository } from 'typeorm';
 import { Habit } from './entities/habit.entity';
 import { CreateHabitDto } from './dto/create-habit.dto';
 import { UpdateHabitDto } from './dto/update-habit.dto';
 import { HabitCompletion } from './entities/habit-completion.entity';
 import { HabitResponseDto } from './dto/habit-response.dto';
 import { plainToInstance } from 'class-transformer';
+import { HabitCompletionResponseDto } from './dto/habit-completion-response.dto';
 
 @Injectable()
 export class HabitsService {
@@ -117,6 +118,43 @@ export class HabitsService {
     const updated = await this.habitRepo.save(habit);
 
     return plainToInstance(HabitResponseDto, updated, {
+      excludeExtraneousValues: true,
+    });
+  }
+
+  async findTodaysCompletedHabits(
+    userId: string,
+  ): Promise<HabitCompletionResponseDto[]> {
+    const startOfDay = new Date();
+    startOfDay.setHours(0, 0, 0, 0);
+
+    const endOfDay = new Date();
+    endOfDay.setHours(23, 59, 59, 999);
+
+    const habitCompletedToday = await this.completionRepo.find({
+      where: {
+        habit: { user: { id: userId } },
+        completed_at: Between(startOfDay, endOfDay),
+      },
+      relations: ['habit'],
+      order: { completed_at: 'DESC' },
+    });
+
+    return plainToInstance(HabitCompletionResponseDto, habitCompletedToday, {
+      excludeExtraneousValues: true,
+    });
+  }
+
+  async findCompletedHabits(
+    userId: string,
+  ): Promise<HabitCompletionResponseDto[]> {
+    const habitsCompleted = await this.completionRepo.find({
+      where: { habit: { user: { id: userId } } },
+      relations: ['habit'],
+      order: { completed_at: 'DESC' },
+    });
+
+    return plainToInstance(HabitCompletionResponseDto, habitsCompleted, {
       excludeExtraneousValues: true,
     });
   }

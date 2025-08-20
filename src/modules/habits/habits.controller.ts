@@ -7,8 +7,6 @@ import {
   Param,
   Delete,
   UseGuards,
-  ClassSerializerInterceptor,
-  UseInterceptors,
 } from '@nestjs/common';
 import { HabitsService } from './habits.service';
 import { CreateHabitDto } from './dto/create-habit.dto';
@@ -21,7 +19,6 @@ import { PayloadType } from '../auth/interface/payload-types';
 
 @Controller('habits')
 @UseGuards(JwtAuthGuard)
-@UseInterceptors(ClassSerializerInterceptor)
 export class HabitsController {
   constructor(private readonly habitsService: HabitsService) {}
 
@@ -43,7 +40,24 @@ export class HabitsController {
   @Post(':id/completions')
   async complete(@Param('id') id: string, @GetUser() user: PayloadType) {
     const result = await this.habitsService.completeHabit(id, user.userId);
-    return successResponse('Habit completed successsfully!', result);
+    return successResponse('Habit completed successfully!', result);
+  }
+
+  @Get('completed')
+  async getCompletedHabits(@GetUser() user: PayloadType) {
+    const result = await this.habitsService.findCompletedHabits(user.userId);
+    return successResponse('Fetched completed habits successfully!', result);
+  }
+
+  @Get('completed/today')
+  async getTodaysCompleted(@GetUser() user: PayloadType) {
+    const result = await this.habitsService.findTodaysCompletedHabits(
+      user.userId,
+    );
+    return successResponse(
+      "Fetched today's completed habits successfully!",
+      result,
+    );
   }
 
   @Get(':id')
