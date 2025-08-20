@@ -50,7 +50,14 @@ $ cd path/to/react-native-app-backend
 $ npm install
 ```
 
-- Set up environment variables (.env file), you'll an example in .env.example
+- Set up environment variables (.env file).
+  You can use the provided .env.example as a template:
+
+- To generate a secure API key, run:
+
+```bash
+$ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
 
 - Run the development server:
 
@@ -60,6 +67,11 @@ $ npm run start:dev
 
 ## 📚 API Endpoints
 
+⚠️ All requests must include the API key in the headers:
+
+```bash
+x-api-key: your_generated_api_key
+```
 
 ### Auth
 
