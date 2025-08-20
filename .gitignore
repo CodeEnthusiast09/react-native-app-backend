@@ -34,6 +34,8 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# HTTP Client files 
 http-client.http
 
 # dotenv environment variable files
